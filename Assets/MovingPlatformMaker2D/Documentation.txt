@@ -1,0 +1,187 @@
+Moving Platform Maker 2D
+
+This is a brief documentation of the asset.
+A mode detailed documentation with videos and gifs can be found on our website: http://atgamestudio.github.io/mpm2d.html
+
+
+The Moving Platform Maker 2D Asset is the solution to easily create 2D moving platforms.
+There are some scripts that make this happen:
+
+
+1) Path
+
+You can create a path from the menu: GameObject > Moving Platform Maker 2D > Path
+
+A path consists of:
+
+1.a) Edit button
+
+The edit button enables the path editor, where you can add, remove and move points of the path.
+
+- Editing and moving points: 
+Just click on the point and drag it to move it.
+
+- Adding new points at the end: 
+Hold Shift and click in the position that you want the new point.
+(This option is not available when the path is Cyclic.)
+
+- Adding new points in the middle:
+Hold Shift and click in the circles that appear between the existent points.
+
+- Removing points:
+Hold Ctrl and click on the points that you want to remove.
+
+
+1.b) Easing curve
+
+The easing curve of the path can be adjusted for the movement of the path follower. 
+The default curve is a straight line and it's the best option when using with an open path or connected.
+You can use a sigmoid curve to make the movement smoother.
+
+1.c) Type
+
+There are three types of Paths: Cyclic, Ping Pong and Connected.
+
+
+
+2) PathFollower
+
+The path follower is a game object that can follow a path. It can be a platform, an enemy, etc. 
+You can create a path from the menu: GameObject > Moving Platform Maker 2D > PathFollower
+
+A path follower consists of:
+
+2.a) Active
+
+It defines whether this object is active in following the path or not. If not it'll stand still.
+
+2.b) Direction
+
+It defines the direction that it'll follow the path. Forward: from start to end. Backward: from end to start. In a ping pong path the direction changes when the follower reaches the boundaries.
+
+2.c) Speed
+
+It defines the speed of the follower.
+
+2.d) Gravity
+
+The gravity acceleration of the follower when out of the path. It has it's own acceleration independent of the unity physics system.
+
+2.e) Look At Next Waypoint
+
+Useful for enemies, when following a path it turns it's front in the direction of the next waypoint of the path, relativelly to the X axis. Example:
+
+
+
+3) PathFollowerTrigger
+
+It is used to activate a path follower when the player or something enters in the trigger area. 
+You can create a path from the menu: GameObject > Moving Platform Maker 2D > PathFollowerTrigger
+A BoxCollider2D will be added to the game object. You can change to any other collider 2D you want, it just need to be a trigger.
+
+A path follower trigger consists of:
+
+3.a) Layer Mask
+
+The layer mask defines which layers can interact with the trigger.
+
+3.b) Followers
+
+A list of path followers that will activate when the trigger is fired.
+
+3.c) Active Only When Inside
+
+If checked, the followers will only be active when the player is inside the trigger area. If unchecked, the followers will be activated when the player enters the first time into the trigger area.
+
+3.d) Change Direction On Activate
+
+Each time the trigger is activated it will change the follower's direction.
+
+
+
+4) CircularPlatformController
+
+You can create a path from the menu: GameObject > Moving Platform Maker 2D > CircularPlatform
+
+A circular platform controller consists of:
+
+4.a) Gizmo Color
+
+The color of the circle gizmo.
+
+4.b) Degrees per second
+
+The angular velocity of the platforms in degrees per second.
+
+4.c) Radius
+
+The radius of the circle.
+
+4.d) Number Of Platforms
+
+The number of platforms that will be instantiated.
+
+4.e) Platform Prefab
+
+The platform prefab that will be instantiated.
+
+
+
+5) Moving platform
+
+This script is used in the platform prefab and is responsible for carrying the player.
+
+
+
+6) Falling platform
+
+This script is used in the platform to set a delay to fall after being touched by the player.
+
+
+
+7) Decorators
+
+There are 2 decorators that can help to better visualize the paths. Just add the script to the path game object.
+
+7.a) PathGizmosDecorator
+It shows the path in the scene view in the editor.
+
+7.b) PathLineDecorator
+It creates line renderers to show the path in the scene view and also in the game view.
+
+
+
+-- Credits -- 
+
+The demo scenes were inspired by Super Mario World's levels. All the images and music are open sourced.
+
+a) Donut plains 3
+
+Music: 
+http://opengameart.org/content/jump-and-run-8-bit
+
+Sprites: 
+http://opengameart.org/content/platformer-art-mushroom-land
+http://opengameart.org/content/platformer-art-deluxe
+http://opengameart.org/content/2d-backgrounds-set
+
+b) Forest Fortress
+
+Music: 
+http://opengameart.org/content/the-forgotten-forest
+
+Sprites: 
+http://opengameart.org/content/pixel-art-castle-tileset
+https://commons.wikimedia.org/wiki/File:Circularsawblade.png
+http://opengameart.org/content/16x16-and-animated-lava-tile-45-frames
+https://openclipart.org/detail/22293/cartoon-rhino
+
+Tiles:
+https://www.assetstore.unity3d.com/en/#!/content/20203
+
+c) Unity Chan 2D
+
+The demo scenes were created using the Unity-Chan 2D which is not included in the asset. 
+Unity-Chan is a copyright © Unity Technologies Japan/UCL.
+The Unity-Chan package can be downloaded here (http://unity-chan.com/download/releaseNote.php?id=UnityChan2D&lang=en).
+Please read the licence terms before using it for any purpose. (http://unity-chan.com/contents/license_en/)

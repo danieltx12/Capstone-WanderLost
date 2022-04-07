@@ -33,11 +33,6 @@ public class GameController : MonoBehaviour
         {
             Reload();
         }
-
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
     }
 
     public void Reload()

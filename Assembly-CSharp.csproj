@@ -63,18 +63,40 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\MovingPlatformMaker2D\Demos\Donut Plains 3\Scripts\SwitchButton.cs" />
+    <Compile Include="Assets\MovingPlatformMaker2D\Demos\Forest Fortress\Scripts\CircularSawBlade.cs" />
+    <Compile Include="Assets\MovingPlatformMaker2D\Scripts\AnimationEasingCurve.cs" />
+    <Compile Include="Assets\MovingPlatformMaker2D\Scripts\CircularPlatform.cs" />
+    <Compile Include="Assets\MovingPlatformMaker2D\Scripts\CircularPlatformController.cs" />
+    <Compile Include="Assets\MovingPlatformMaker2D\Scripts\EasingCurve.cs" />
+    <Compile Include="Assets\MovingPlatformMaker2D\Scripts\FallingPlatform.cs" />
+    <Compile Include="Assets\MovingPlatformMaker2D\Scripts\MovingPlatform.cs" />
+    <Compile Include="Assets\MovingPlatformMaker2D\Scripts\Path.cs" />
+    <Compile Include="Assets\MovingPlatformMaker2D\Scripts\PathDelegate.cs" />
+    <Compile Include="Assets\MovingPlatformMaker2D\Scripts\PathDirection.cs" />
+    <Compile Include="Assets\MovingPlatformMaker2D\Scripts\PathFollower.cs" />
+    <Compile Include="Assets\MovingPlatformMaker2D\Scripts\PathFollowerTrigger.cs" />
+    <Compile Include="Assets\MovingPlatformMaker2D\Scripts\PathGizmosDecorator.cs" />
+    <Compile Include="Assets\MovingPlatformMaker2D\Scripts\PathLineDecorator.cs" />
+    <Compile Include="Assets\MovingPlatformMaker2D\Scripts\PathType.cs" />
+    <Compile Include="Assets\MovingPlatformMaker2D\Scripts\Utils.cs" />
+    <Compile Include="Assets\Scripts\AbilityUpgrade.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CharacterController.cs" />
     <Compile Include="Assets\Scripts\Checkpoint.cs" />
     <Compile Include="Assets\Scripts\DashAbility.cs" />
     <Compile Include="Assets\Scripts\Fireball.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\HealthUpgrade.cs" />
     <Compile Include="Assets\Scripts\HP.cs" />
     <Compile Include="Assets\Scripts\Melee.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\PlayerPos.cs" />
     <Compile Include="Assets\Scripts\ProjectileBehavior.cs" />
     <Compile Include="Assets\Scripts\Spikes.cs" />
+    <Compile Include="Assets\Scripts\UIController.cs" />
+    <None Include="Assets\MovingPlatformMaker2D\README.txt" />
+    <None Include="Assets\MovingPlatformMaker2D\Documentation.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Daniel/Desktop/Unity Projects/Capstone/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

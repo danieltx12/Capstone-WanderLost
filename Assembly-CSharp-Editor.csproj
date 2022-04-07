@@ -63,8 +63,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Editor\CircularPlatformControllerEditor.cs" />
     <Compile Include="Assets\Editor\CoordinateDisplay.cs" />
+    <Compile Include="Assets\Editor\Menu.cs" />
     <Compile Include="Assets\Editor\MouseHelper.cs" />
+    <Compile Include="Assets\Editor\PathEditor.cs" />
+    <Compile Include="Assets\Editor\PathLineDecoratorEditor.cs" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>C:/Users/Daniel/Desktop/Unity Projects/Capstone/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>

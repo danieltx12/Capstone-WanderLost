@@ -23,6 +23,7 @@ public class CharacterController : MonoBehaviour
     private bool m_doubleJump = false;
     private bool m_jumping = false;
     private float m_vel;
+    public bool canGlide = false;
 
     [Header("Events")]
     [Space]
@@ -96,7 +97,7 @@ public class CharacterController : MonoBehaviour
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
             m_jumping = true;
         }
-        if(!m_Grounded && jump && m_doubleJump)
+        if(!m_Grounded && jump && m_doubleJump && canGlide)
         {
             // Add a vertical force to the player.
             m_doubleJump = false;

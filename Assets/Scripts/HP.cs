@@ -1,20 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HP : MonoBehaviour
 {
     public GameController gameController;
     [SerializeField] int MaxHealth;
     private int Health;
+    public Text HPDisplay;
+
 
     private void Start()
     {
         Health = MaxHealth;
+        if(this.tag == "Player")
+        {
+            HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
+        }
     }
     public void Damage(int dmg)
     {
         Health -= dmg;
+        HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
         Debug.Log(Health);
         if( Health <=0)
         {
@@ -25,9 +33,11 @@ public class HP : MonoBehaviour
     public void Heal(int dmg)
     {
         Health += dmg;
-        if(Health > MaxHealth)
+        HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
+        if (Health > MaxHealth)
         {
             Health = MaxHealth;
+            HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
         }
     }
 
@@ -41,5 +51,12 @@ public class HP : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    public void Upgrade()
+    {
+        MaxHealth += 5;
+        //Health += 5;
+        HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
     }
 }

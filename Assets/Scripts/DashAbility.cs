@@ -7,6 +7,7 @@ public class DashAbility : MonoBehaviour
     public DashState dashState;
     public float dashTimer;
     public float maxDash = 20f;
+    public bool canDash = false;
 
     public Vector2 savedVelocity;
     public Rigidbody2D rigid;
@@ -17,7 +18,7 @@ public class DashAbility : MonoBehaviour
         {
             case DashState.Ready:
                 var isDashKeyDown = Input.GetKeyDown(KeyCode.E);
-                if (isDashKeyDown)
+                if (isDashKeyDown && canDash)
                 {
                     savedVelocity = rigid.velocity;
                     rigid.velocity = new Vector2(rigid.velocity.x * 10f, rigid.velocity.y);

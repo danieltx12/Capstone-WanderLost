@@ -7,8 +7,8 @@ public class Fireball : MonoBehaviour
     public Rigidbody2D FireballProj;
     public Rigidbody2D MeleeProj;
     public Transform LaunchOffset;
-    bool canShoot = true;
-    bool canMelee = true;
+    public bool canShoot = false;
+    public bool canMelee = false;
     public void Shoot()
     {
         if (canShoot)

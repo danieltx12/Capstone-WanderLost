@@ -16,6 +16,10 @@ public class Movement : MonoBehaviour
 
     bool doublejump = false;
 
+    public bool canGlide = false;
+
+    public bool canAttack = false;
+
     float horizontalMove = 0f;
     void Start()
     {
@@ -39,7 +43,7 @@ public class Movement : MonoBehaviour
             controller.StopGlide();
 
         }
-        if (Input.GetButton("Jump") && glide && jump)
+        if (Input.GetButton("Jump") && glide && jump && canGlide)
         {
 
             controller.Glide();
@@ -53,11 +57,11 @@ public class Movement : MonoBehaviour
         {
             runSpeed = 40f;
         }
-        if (Input.GetKey(KeyCode.J))
+        if (Input.GetKey(KeyCode.J) && canAttack)
         {
             fireball.Shoot();
         }
-        if (Input.GetKey(KeyCode.K))
+        if (Input.GetKey(KeyCode.K) && canAttack)
         {
             fireball.Melee();
         }
