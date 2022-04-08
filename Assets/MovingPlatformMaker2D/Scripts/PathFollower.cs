@@ -3,11 +3,12 @@ using System.Collections;
 
 namespace MovingPlatformMaker2D {
 
-	#if UNITY_5_1
+#if UNITY_5_1
 	[HelpURL("http://atgamestudio.github.io/mpm2d.html#pathfollower")]
-	#endif
-	[AddComponentMenu("Moving Platform Maker 2D/Path Follower")]
-	[RequireComponent(typeof(Rigidbody2D))]
+#endif
+    [AddComponentMenu("Moving Platform Maker 2D/Path Follower")]
+    [RequireComponent(typeof(Rigidbody2D))]
+    
 	public class PathFollower : MonoBehaviour {
 
 		public bool active = true;
@@ -23,8 +24,9 @@ namespace MovingPlatformMaker2D {
 		private Vector3 target;
 		private Vector3 velocity = Vector3.zero;
 		private bool useGravity = true;
+        Transform platformTransform;
 
-		void Reset() {
+        void Reset() {
 			Collider2D col = GetComponent<Collider2D>();
 			if (col == null) {
 				col = gameObject.AddComponent<BoxCollider2D> ();
@@ -38,9 +40,11 @@ namespace MovingPlatformMaker2D {
 		void Awake () {
 			Reset ();
 			target = transform.position;
+            platformTransform = GetComponent<Transform>();
 		}
 
 		void Update () {
+            
 			if (!active)
 				return;
 			
@@ -163,6 +167,26 @@ namespace MovingPlatformMaker2D {
 				direction = PathDirection.Backward;
 		}
 
-	}
+        void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+                collision.transform.SetParent(platformTransform);
+            }
+
+        }
+
+        void OnCollisionExit2D(Collision2D collision)
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+                collision.transform.SetParent(null);
+            }
+
+        }
+
+    }
+
+   
 
 }

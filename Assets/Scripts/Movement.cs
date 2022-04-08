@@ -21,9 +21,11 @@ public class Movement : MonoBehaviour
     public bool canAttack = false;
 
     float horizontalMove = 0f;
+
+    private Animator animator;
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,13 +34,13 @@ public class Movement : MonoBehaviour
        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         if (Input.GetButtonDown("Jump"))
         {
-            
-                jump = true;
+            // animator.SetTrigger("isJump");
+            jump = true;
 
         }
         if (Input.GetButtonUp("Jump"))
         {
-
+          
             glide = true;
             controller.StopGlide();
 
@@ -57,13 +59,23 @@ public class Movement : MonoBehaviour
         {
             runSpeed = 40f;
         }
-        if (Input.GetKey(KeyCode.J) && canAttack)
+        if (Input.GetKeyDown(KeyCode.J) && canAttack)
         {
             fireball.Shoot();
         }
-        if (Input.GetKey(KeyCode.K) && canAttack)
+        if (Input.GetKeyDown(KeyCode.K) && canAttack)
         {
+            animator.SetTrigger("isAttack");
             fireball.Melee();
+        }
+
+        if (horizontalMove != 0)
+        {
+            animator.SetBool("isRun", true);
+        }
+        else
+        {
+            animator.SetBool("isRun", false);
         }
     }
 
