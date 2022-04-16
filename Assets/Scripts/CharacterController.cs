@@ -110,13 +110,15 @@ public class CharacterController : MonoBehaviour
         {
             // Add a vertical force to the player.
             m_doubleJump = false;
+            m_Rigidbody2D.AddForce(new Vector2(0f, m_DoubleJumpForce));
             if (m_Rigidbody2D.velocity.y < 0)
                 {
                 m_vel = m_Rigidbody2D.velocity.y * -3;
                 }
             m_vel = Mathf.Clamp(m_vel, -1000, 2);
+            
 
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_DoubleJumpForce));
+           
         }
     }
 
@@ -150,7 +152,7 @@ public class CharacterController : MonoBehaviour
 
     public void Glide()
     {
-        m_Rigidbody2D.gravityScale = 0.5f;
+        //m_Rigidbody2D.gravityScale = 0.5f;
     }
     public void StopGlide()
     {
