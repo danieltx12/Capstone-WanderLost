@@ -34,17 +34,17 @@ public class Movement : MonoBehaviour
        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         if (Input.GetButtonDown("Jump"))
         {
-            // animator.SetTrigger("isJump");
+            animator.SetTrigger("isJump");
             jump = true;
 
         }
-        if (Input.GetButtonUp("Jump"))
+       /* if (Input.GetButtonUp("Jump"))
         {
           
             glide = true;
             controller.StopGlide();
 
-        }
+        }*/
         if (Input.GetButton("Jump") && glide && jump && canGlide)
         {
 

@@ -189,7 +189,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.24814087}
+  m_Offset: {x: 0, y: 0.2060781}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -200,7 +200,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1428572, y: 1.0432822}
+  m_Size: {x: 1.1428572, y: 0.7067802}
   m_EdgeRadius: 0
 --- !u!212 &1924476
 SpriteRenderer:
@@ -153737,12 +153737,22 @@ PrefabInstance:
     - target: {fileID: 4985696668967409443, guid: 56d0ae438107ce14e86fb81e5c53eeb2,
         type: 3}
       propertyPath: canAttack
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985696668967409443, guid: 56d0ae438107ce14e86fb81e5c53eeb2,
+        type: 3}
+      propertyPath: canGlide
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4985696668967409452, guid: 56d0ae438107ce14e86fb81e5c53eeb2,
         type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985696668967409442, guid: 56d0ae438107ce14e86fb81e5c53eeb2,
+        type: 3}
+      propertyPath: canDash
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56d0ae438107ce14e86fb81e5c53eeb2, type: 3}
