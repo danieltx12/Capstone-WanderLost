@@ -16,15 +16,19 @@ public class Melee : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer != 8)
+        if (collision.gameObject.layer == 7)
         {
             hp = collision.gameObject.GetComponent<HP>();
             hp.Damage(dmg);
             Destroy(this.gameObject);
         }
-        if (collision.gameObject.layer == 8)
+        else if (collision.gameObject.layer == 8)
         {
             Debug.Log("IGNORING  COLLISION");
+        }
+        else
+        {   
+            Destroy(this.gameObject);
         }
     }
 

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class HP : MonoBehaviour
 {
     public GameController gameController;
+    public PlayerPos playerpos;
     [SerializeField] int MaxHealth;
     private int Health;
     public Text HPDisplay;
@@ -22,7 +23,10 @@ public class HP : MonoBehaviour
     public void Damage(int dmg)
     {
         Health -= dmg;
-        HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
+        if (HPDisplay != null)
+        {
+            HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
+        }
         Debug.Log(Health);
         if( Health <=0)
         {
@@ -45,7 +49,9 @@ public class HP : MonoBehaviour
     {
         if (this.gameObject.tag  == "Player")
         {
-            gameController.Reload();
+            Health = MaxHealth;
+            playerpos.Reload();
+            HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
         }
         else
         {

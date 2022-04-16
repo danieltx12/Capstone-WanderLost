@@ -315,6 +315,18 @@ EdgeCollider2D:
   - {x: -0.12839988, y: -0.0612006}
   - {x: -0.091789685, y: -0.12247437}
   - {x: 0.07296793, y: -0.11540183}
+--- !u!114 &5130024 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4985696668967409467, guid: 56d0ae438107ce14e86fb81e5c53eeb2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1776673915}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5130021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cf0e92bf4687ff4d8440b0697566575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5130031 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4985696668967409447, guid: 56d0ae438107ce14e86fb81e5c53eeb2,
@@ -4777,7 +4789,8 @@ GameObject:
   - component: {fileID: 814982328}
   - component: {fileID: 814982327}
   - component: {fileID: 814982326}
-  m_Layer: 0
+  - component: {fileID: 814982331}
+  m_Layer: 10
   m_Name: Enemy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4880,6 +4893,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &814982331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814982325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad7aa0abce68a04fa7071f71c81e942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
+  playerpos: {fileID: 0}
+  MaxHealth: 10
+  HPDisplay: {fileID: 0}
 --- !u!1 &846372226
 GameObject:
   m_ObjectHideFlags: 0
@@ -5024,7 +5053,7 @@ GameObject:
   - component: {fileID: 863215913}
   - component: {fileID: 863215916}
   - component: {fileID: 863215915}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Worm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153654,6 +153683,11 @@ PrefabInstance:
       propertyPath: HPDisplay
       value: 
       objectReference: {fileID: 1108124814}
+    - target: {fileID: 4985696668967409444, guid: 56d0ae438107ce14e86fb81e5c53eeb2,
+        type: 3}
+      propertyPath: playerpos
+      value: 
+      objectReference: {fileID: 5130024}
     - target: {fileID: 4985696668562268783, guid: 56d0ae438107ce14e86fb81e5c53eeb2,
         type: 3}
       propertyPath: m_LocalPosition.x

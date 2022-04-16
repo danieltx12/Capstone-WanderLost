@@ -12,8 +12,8 @@ public class PlayerPos : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Reload()
     {
-        
+        transform.position = gameController.lastCheckPointPos;
     }
 }

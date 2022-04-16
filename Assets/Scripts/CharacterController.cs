@@ -24,7 +24,7 @@ public class CharacterController : MonoBehaviour
     private bool m_jumping = false;
     private float m_vel;
     public bool canGlide = false;
-
+    private static CharacterController instance;
     [Header("Events")]
     [Space]
 
@@ -39,6 +39,15 @@ public class CharacterController : MonoBehaviour
 
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(instance);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void FixedUpdate()

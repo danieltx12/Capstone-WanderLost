@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
 {
     private static GameController instance;
     public Vector2 lastCheckPointPos;
+    
 
     private void Awake()
     {
