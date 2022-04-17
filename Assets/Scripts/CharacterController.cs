@@ -6,22 +6,22 @@ using UnityEngine.Events;
 public class CharacterController : MonoBehaviour
 {
 
-    [SerializeField] private float m_JumpForce = 400f;
-    [SerializeField] private float m_DoubleJumpForce = 400f;// Amount of force added when the player jumps.
+    [SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps
+    [SerializeField] private float m_DoubleJumpForce = 400f;                    // Amount of force added when the player double jumps
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;  // How much to smooth out the movement
     [SerializeField] private bool m_AirControl = false;                         // Whether or not a player can steer while jumping;
     [SerializeField] private LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
     [SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
     [SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
 
-    const float k_GroundedRadius = .5f; // Radius of the overlap circle to determine if grounded
+    const float m_GroundedRadius = .5f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded;            // Whether or not the player is grounded.
-    const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
+    const float m_CeilingRadius = .2f;  // Radius of the overlap circle to determine if the player can stand up
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private Vector3 m_Velocity = Vector3.zero;
-    private bool m_doubleJump = false;
-    private bool m_jumping = false;
+    private bool m_doubleJump = true;   // Whether the player is able to double jump
+    private bool m_jumping = false;     // Whether the player has jumped off the ground
     private float m_vel;
     public bool canGlide = false;
     private static CharacterController instance;
@@ -59,14 +59,14 @@ public class CharacterController : MonoBehaviour
 
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
         // This can be done using layers instead but Sample Assets will not overwrite your project settings.
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, m_GroundedRadius, m_WhatIsGround);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
             {
                 m_Grounded = true;
-                m_doubleJump = true;
                 m_jumping = false;
+                m_doubleJump = true;
                 if (!wasGrounded)
                     OnLandEvent.Invoke();
                 m_Rigidbody2D.gravityScale = 3;
@@ -79,8 +79,6 @@ public class CharacterController : MonoBehaviour
 
     public void Move(float move, bool jump)
     {
-   
-
             // Move the character by finding the target velocity
             Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
             // And then smoothing it out and applying it to the character
@@ -97,28 +95,29 @@ public class CharacterController : MonoBehaviour
             {
                 // ... flip the player.
                 FlipLeft();
-            } 
+            }
         // If the player should jump...
-        if (m_Grounded && jump)
+        if(jump)
         {
-            // Add a vertical force to the player.
-            m_Grounded = false;
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-            m_jumping = true;
-        }
-        if(!m_Grounded && jump && m_doubleJump && canGlide)
-        {
-            // Add a vertical force to the player.
-            m_doubleJump = false;
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_DoubleJumpForce));
-            if (m_Rigidbody2D.velocity.y < 0)
+            if(m_Grounded)
+            {
+                // Add a vertical force to the player.
+                m_Grounded = false;
+                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+                m_jumping = true;
+            }
+            else if(!m_Grounded && m_doubleJump)
+            {
+                // Add a vertical force to the player.
+                m_doubleJump = false;
+                m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
+                m_Rigidbody2D.AddForce(new Vector2(0f, m_DoubleJumpForce));
+                if(m_Rigidbody2D.velocity.y < 0)
                 {
-                m_vel = m_Rigidbody2D.velocity.y * -3;
+                    m_vel = m_Rigidbody2D.velocity.y * -3;
                 }
-            m_vel = Mathf.Clamp(m_vel, -1000, 2);
-            
-
-           
+                m_vel = Mathf.Clamp(m_vel, -1000, 2);
+            }
         }
     }
 
@@ -134,8 +133,8 @@ public class CharacterController : MonoBehaviour
         //transform.localScale = theScale;
 
         transform.rotation = Quaternion.Euler(0, 180, 0);
-        
     }
+
     private void FlipRight()
     {
         // Switch the way the player is labelled as facing.
@@ -147,13 +146,13 @@ public class CharacterController : MonoBehaviour
         //transform.localScale = theScale;
 
         transform.rotation = Quaternion.Euler(0, 0, 0);
-
     }
 
     public void Glide()
     {
         //m_Rigidbody2D.gravityScale = 0.5f;
     }
+
     public void StopGlide()
     {
         m_Rigidbody2D.gravityScale = 3f;
