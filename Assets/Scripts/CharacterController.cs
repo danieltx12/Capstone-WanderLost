@@ -52,6 +52,7 @@ public class CharacterController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         bool wasGrounded = m_Grounded;
         bool doubleJump = m_doubleJump;
         m_Grounded = false;
@@ -157,5 +158,9 @@ public class CharacterController : MonoBehaviour
     {
         m_Rigidbody2D.gravityScale = 3f;
     }
-    
+
+    private void Update()
+    {
+        Debug.Log(m_doubleJump);
+    }
 }

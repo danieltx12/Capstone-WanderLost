@@ -9,17 +9,22 @@ public class HP : MonoBehaviour
     public PlayerPos playerpos;
     [SerializeField] int MaxHealth;
     private int Health;
+    public float iframes;
     public Text HPDisplay;
-
-
+    public Material red;
+    public Material normal;
+    SpriteRenderer spriteRend;
+    bool invuln = false;
     private void Start()
     {
         Health = MaxHealth;
         if(this.tag == "Player")
         {
             HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
+            spriteRend = this.GetComponent<SpriteRenderer>();
         }
     }
+
     public void Damage(int dmg)
     {
         Health -= dmg;
@@ -28,9 +33,16 @@ public class HP : MonoBehaviour
             HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
         }
         Debug.Log(Health);
-        if( Health <=0)
+        if( Health <= 0)
         {
             Kill();
+        }
+
+        if(this.tag == "Player")
+        {
+            invuln = !invuln;
+            StartCoroutine("iframe");
+            StartCoroutine("flash");
         }
     }
 
@@ -65,4 +77,32 @@ public class HP : MonoBehaviour
         //Health += 5;
         HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
     }
+
+    IEnumerator iframe()
+    {
+        
+        yield return new WaitForSeconds(0.1f);
+        Physics2D.IgnoreLayerCollision(8, 10, true);
+        yield return new WaitForSeconds(iframes);
+        Physics2D.IgnoreLayerCollision(8, 10, false);
+        StopCoroutine("flash");
+        spriteRend.material = normal;
+
+    }
+
+    IEnumerator flash()
+    {
+        while (true)
+        {
+        spriteRend.material = red;
+        Debug.Log("SWAP RED");
+        yield return new WaitForSeconds(0.1f);
+        Debug.Log("SWAP NORM");
+        spriteRend.material = normal;
+        yield return new WaitForSeconds(0.1f);
+        }
+       
+        
+    }
+
 }

@@ -63,8 +63,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\EnemyAI.cs" />
-    <Compile Include="Assets\EnemyGraphics.cs" />
+    <Compile Include="Assets\AttackHitbox.cs" />
+    <Compile Include="Assets\AttackTrigger.cs" />
     <Compile Include="Assets\MovingPlatformMaker2D\Demos\Donut Plains 3\Scripts\SwitchButton.cs" />
     <Compile Include="Assets\MovingPlatformMaker2D\Demos\Forest Fortress\Scripts\CircularSawBlade.cs" />
     <Compile Include="Assets\MovingPlatformMaker2D\Scripts\AnimationEasingCurve.cs" />
@@ -87,6 +87,8 @@
     <Compile Include="Assets\Scripts\CharacterController.cs" />
     <Compile Include="Assets\Scripts\Checkpoint.cs" />
     <Compile Include="Assets\Scripts\DashAbility.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI.cs" />
+    <Compile Include="Assets\Scripts\EnemyGraphics.cs" />
     <Compile Include="Assets\Scripts\Fireball.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\HealthUpgrade.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\PlayerPos.cs" />
     <Compile Include="Assets\Scripts\ProjectileBehavior.cs" />
+    <Compile Include="Assets\Scripts\SpawnTriggers.cs" />
     <Compile Include="Assets\Scripts\Spikes.cs" />
     <Compile Include="Assets\Scripts\UIController.cs" />
     <None Include="Assets\MovingPlatformMaker2D\README.txt" />

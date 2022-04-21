@@ -6,15 +6,19 @@ using Pathfinding;
 public class EnemyAI : MonoBehaviour
 {
     public Transform target;
-
+    public Collider2D attackTrigger;
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
-
+    public Animator animator;
+    public int dmg;
+    HP hp;
     public Transform enemyGFX;
 
     Path path;
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
+
+    public float originalSpeed;
 
     Seeker seeker;
     Rigidbody2D rb;
@@ -23,7 +27,7 @@ public class EnemyAI : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-
+        originalSpeed = speed;
         InvokeRepeating("UpdatePath", 0f, 0.5f);
         
     }
@@ -81,4 +85,14 @@ public class EnemyAI : MonoBehaviour
             enemyGFX.localScale = new Vector3(1f, 1f, 1f);
         }
     }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            hp = collision.gameObject.GetComponent<HP>();
+            hp.Damage(dmg);
+
+        }
+    }
+
 }
