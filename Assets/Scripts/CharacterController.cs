@@ -15,7 +15,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
 
     const float m_GroundedRadius = .5f; // Radius of the overlap circle to determine if grounded
-    private bool m_Grounded;            // Whether or not the player is grounded.
+    public bool m_Grounded;            // Whether or not the player is grounded.
     const float m_CeilingRadius = .2f;  // Radius of the overlap circle to determine if the player can stand up
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
@@ -25,6 +25,7 @@ public class CharacterController : MonoBehaviour
     private float m_vel;
     public bool canGlide = false;
     private static CharacterController instance;
+    Animator animator;
     [Header("Events")]
     [Space]
 
@@ -35,6 +36,7 @@ public class CharacterController : MonoBehaviour
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
         if (OnLandEvent == null)
@@ -56,6 +58,7 @@ public class CharacterController : MonoBehaviour
         bool wasGrounded = m_Grounded;
         bool doubleJump = m_doubleJump;
         m_Grounded = false;
+        animator.SetBool("isFalling", true);
         m_vel = m_Rigidbody2D.velocity.y;
 
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
@@ -66,6 +69,7 @@ public class CharacterController : MonoBehaviour
             if (colliders[i].gameObject != gameObject)
             {
                 m_Grounded = true;
+                animator.SetBool("isFalling", false);
                 m_jumping = false;
                 m_doubleJump = true;
                 if (!wasGrounded)
@@ -106,6 +110,7 @@ public class CharacterController : MonoBehaviour
                 m_Grounded = false;
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
                 m_jumping = true;
+                animator.SetTrigger("isJump");
             }
             else if(!m_Grounded && m_doubleJump)
             {

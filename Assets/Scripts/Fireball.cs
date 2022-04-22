@@ -9,6 +9,12 @@ public class Fireball : MonoBehaviour
     public Transform LaunchOffset;
     public bool canShoot = false;
     public bool canMelee = false;
+    Animator animator;
+
+    public void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     public void Shoot()
     {
         if (canShoot)
@@ -38,7 +44,9 @@ public class Fireball : MonoBehaviour
     IEnumerator CooldownMelee(float cd)
     {
         canMelee = !canMelee;
+        animator.SetBool("canMelee", false);
         yield return new WaitForSeconds(cd);
         canMelee = !canMelee;
+        animator.SetBool("canMelee", true);
     }
 }

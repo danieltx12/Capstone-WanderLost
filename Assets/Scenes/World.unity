@@ -153790,6 +153790,11 @@ PrefabInstance:
       propertyPath: m_DoubleJumpForce
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 4985696668967409441, guid: 56d0ae438107ce14e86fb81e5c53eeb2,
+        type: 3}
+      propertyPath: m_WhatIsGround.m_Bits
+      value: 262144
+      objectReference: {fileID: 0}
     - target: {fileID: 4985696668967409446, guid: 56d0ae438107ce14e86fb81e5c53eeb2,
         type: 3}
       propertyPath: m_Enabled
@@ -153881,6 +153886,11 @@ PrefabInstance:
       propertyPath: canMelee
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4985696668967409445, guid: 56d0ae438107ce14e86fb81e5c53eeb2,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 5130034}
     - target: {fileID: 4985696668967409443, guid: 56d0ae438107ce14e86fb81e5c53eeb2,
         type: 3}
       propertyPath: canAttack

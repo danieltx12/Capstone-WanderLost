@@ -26,6 +26,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        animator.SetBool("canMelee", true);
     }
 
     // Update is called once per frame
@@ -34,7 +35,6 @@ public class Movement : MonoBehaviour
        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         if (Input.GetButtonDown("Jump"))
         {
-            animator.SetTrigger("isJump");
             jump = true;
 
         }
@@ -65,13 +65,17 @@ public class Movement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.K) && canAttack)
         {
-            animator.SetTrigger("isAttack");
+            if (fireball.canMelee)
+            {
+                animator.SetTrigger("isAttack"); 
+            }
             fireball.Melee();
         }
 
-        if (horizontalMove != 0)
+        if (horizontalMove != 0 && controller.m_Grounded)
         {
-            animator.SetBool("isRun", true);
+           animator.SetBool("isRun", true);
+            
         }
         else
         {
