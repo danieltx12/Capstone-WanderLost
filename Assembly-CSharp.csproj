@@ -63,8 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AttackHitbox.cs" />
-    <Compile Include="Assets\AttackTrigger.cs" />
     <Compile Include="Assets\MovingPlatformMaker2D\Demos\Donut Plains 3\Scripts\SwitchButton.cs" />
     <Compile Include="Assets\MovingPlatformMaker2D\Demos\Forest Fortress\Scripts\CircularSawBlade.cs" />
     <Compile Include="Assets\MovingPlatformMaker2D\Scripts\AnimationEasingCurve.cs" />
@@ -83,12 +81,15 @@
     <Compile Include="Assets\MovingPlatformMaker2D\Scripts\PathType.cs" />
     <Compile Include="Assets\MovingPlatformMaker2D\Scripts\Utils.cs" />
     <Compile Include="Assets\Scripts\AbilityUpgrade.cs" />
+    <Compile Include="Assets\Scripts\AttackHitbox.cs" />
+    <Compile Include="Assets\Scripts\AttackTrigger.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CharacterController.cs" />
     <Compile Include="Assets\Scripts\Checkpoint.cs" />
     <Compile Include="Assets\Scripts\DashAbility.cs" />
     <Compile Include="Assets\Scripts\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\EnemyGraphics.cs" />
+    <Compile Include="Assets\Scripts\FallThrough.cs" />
     <Compile Include="Assets\Scripts\Fireball.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\HealthUpgrade.cs" />
