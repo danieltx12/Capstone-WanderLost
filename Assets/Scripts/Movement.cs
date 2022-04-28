@@ -22,6 +22,8 @@ public class Movement : MonoBehaviour
 
     float horizontalMove = 0f;
 
+    bool hasKey = false;
+
     private Animator animator;
     void Start()
     {
@@ -80,6 +82,14 @@ public class Movement : MonoBehaviour
         else
         {
             animator.SetBool("isRun", false);
+        }
+
+        if(controller.m_Grounded)
+            animator.SetBool("isFalling", false);
+        else if(!controller.m_Grounded)
+        {
+            animator.SetBool("isFalling", true);
+            
         }
     }
 

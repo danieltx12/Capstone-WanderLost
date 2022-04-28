@@ -12,7 +12,7 @@ public class AttackTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            //enemyAI.animator.SetTrigger("Attack");
+            enemyAI.animator.SetTrigger("Attack");
             StartCoroutine("Attack");
 
         }

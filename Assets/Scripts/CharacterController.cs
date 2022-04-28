@@ -58,7 +58,6 @@ public class CharacterController : MonoBehaviour
         bool wasGrounded = m_Grounded;
         bool doubleJump = m_doubleJump;
         m_Grounded = false;
-        animator.SetBool("isFalling", true);
         m_vel = m_Rigidbody2D.velocity.y;
 
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
@@ -68,12 +67,11 @@ public class CharacterController : MonoBehaviour
         {
             if (colliders[i].gameObject != gameObject)
             {
-                m_Grounded = true;
-                animator.SetBool("isFalling", false);
+                m_Grounded = true; 
                 m_jumping = false;
                 m_doubleJump = true;
                 if (!wasGrounded)
-                    OnLandEvent.Invoke();
+                    OnLandEvent.Invoke();                 
                 m_Rigidbody2D.gravityScale = 3;
             }
         }

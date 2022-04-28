@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ShowOnPause
   - ShowQuit
+  - Fireball
   layers:
   - Default
   - TransparentFX

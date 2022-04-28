@@ -8,6 +8,7 @@ public class AbilityUpgrade : MonoBehaviour
     [SerializeField] bool isGlideUpgrade;
     [SerializeField] bool isAttackUpgrade;
     [SerializeField] bool isDashUpgrade;
+    [SerializeField] bool isKey;
     Fireball fireball;
     CharacterController characterController;
     DashAbility dashAbility;
@@ -39,6 +40,11 @@ public class AbilityUpgrade : MonoBehaviour
             else if(isDashUpgrade)
             {
                 dashAbility.canDash = true;
+                Destroy(this.gameObject);
+            }
+            else if(isKey)
+            {
+                movement.hasKey = true;
                 Destroy(this.gameObject);
             }
         }
