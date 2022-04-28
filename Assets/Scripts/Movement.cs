@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
 
     float horizontalMove = 0f;
 
-    bool hasKey = false;
+    public bool hasKey = false;
 
     private Animator animator;
     void Start()

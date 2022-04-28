@@ -25,5 +25,6 @@ public class AttackTrigger : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         Debug.Log("DONE");
         enemyAI.speed = enemyAI.originalSpeed;
+
     }
 }

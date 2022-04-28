@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\AbilityUpgrade.cs" />
     <Compile Include="Assets\Scripts\AttackHitbox.cs" />
     <Compile Include="Assets\Scripts\AttackTrigger.cs" />
+    <Compile Include="Assets\Scripts\Button.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CharacterController.cs" />
     <Compile Include="Assets\Scripts\Checkpoint.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Assets\Scripts\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\EnemyGraphics.cs" />
     <Compile Include="Assets\Scripts\FallThrough.cs" />
+    <Compile Include="Assets\Scripts\FinalDoor.cs" />
     <Compile Include="Assets\Scripts\Fireball.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\HealthUpgrade.cs" />
@@ -97,12 +99,13 @@
     <Compile Include="Assets\Scripts\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\Melee.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\Parallax.cs" />
     <Compile Include="Assets\Scripts\PlayerPos.cs" />
     <Compile Include="Assets\Scripts\ProjectileBehavior.cs" />
     <Compile Include="Assets\Scripts\SpawnTriggers.cs" />
     <Compile Include="Assets\Scripts\Spikes.cs" />
     <Compile Include="Assets\Scripts\UIController.cs" />
-    <Compile Include="Assets\Vines.cs" />
+    <Compile Include="Assets\Scripts\Vines.cs" />
     <None Include="Assets\MovingPlatformMaker2D\README.txt" />
     <None Include="Assets\MovingPlatformMaker2D\Documentation.txt" />
     <Reference Include="Unity.Timeline.Editor">

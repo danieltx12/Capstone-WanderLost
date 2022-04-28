@@ -14,7 +14,12 @@ public class HP : MonoBehaviour
     public Material red;
     public Material normal;
     SpriteRenderer spriteRend;
+    public int numHearts;
+    public Image[] Hearts;
+    public Sprite fullHeart;
+    public Sprite emptyHeart;
     bool invuln = false;
+    bool cd = false;
     private void Start()
     {
         Health = MaxHealth;
@@ -27,22 +32,25 @@ public class HP : MonoBehaviour
 
     public void Damage(int dmg)
     {
-        Health -= dmg;
-        if (HPDisplay != null)
+        if (!invuln)
         {
-            HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
-        }
-        Debug.Log(Health);
-        if( Health <= 0)
-        {
-            Kill();
-        }
+            Health -= dmg;
+            if (HPDisplay != null)
+            {
+                HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
+            }
+            Debug.Log(Health);
+            if (Health <= 0)
+            {
+                Kill();
+            }
 
-        if(this.tag == "Player")
-        {
-            invuln = !invuln;
-            StartCoroutine("iframe");
-            StartCoroutine("flash");
+            if (this.tag == "Player")
+            {
+                invuln = !invuln;
+                StartCoroutine("iframe");
+                StartCoroutine("flash");
+            }
         }
     }
 
@@ -73,9 +81,13 @@ public class HP : MonoBehaviour
 
     public void Upgrade()
     {
-        MaxHealth += 5;
-        //Health += 5;
-        HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
+        if (!cd)
+        {
+            MaxHealth += 1;
+            numHearts += 1;
+            //Health += 5;
+            HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
+        }
     }
 
     IEnumerator iframe()
@@ -86,8 +98,16 @@ public class HP : MonoBehaviour
         yield return new WaitForSeconds(iframes);
         Physics2D.IgnoreLayerCollision(8, 10, false);
         StopCoroutine("flash");
+        invuln = !invuln;
         spriteRend.material = normal;
 
+    }
+
+    IEnumerator cooldown()
+    {
+        cd = true;
+        yield return new WaitForSeconds(0.5f);
+        cd = false;
     }
 
     IEnumerator flash()
@@ -103,6 +123,37 @@ public class HP : MonoBehaviour
         }
        
         
+    }
+
+    public void Update()
+    {
+        if(this.gameObject.tag == "Player")
+        {
+            if (Health > numHearts)
+            {
+                Health = numHearts;
+            }
+            for (int i = 0; i < Hearts.Length; i++)
+            {
+               
+                if(i < Health)
+                {
+                    Hearts[i].sprite = fullHeart;
+                }
+                else
+                {
+                    Hearts[i].sprite = emptyHeart;
+                }
+                if(i < numHearts)
+                {
+                    Hearts[i].enabled = true;
+                }
+                else
+                {
+                    Hearts[i].enabled = false;
+                }
+            }
+        }
     }
 
 }

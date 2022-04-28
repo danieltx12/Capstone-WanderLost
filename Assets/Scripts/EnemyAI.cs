@@ -21,7 +21,7 @@ public class EnemyAI : MonoBehaviour
     public float originalSpeed;
 
     Seeker seeker;
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     
     void Start()
     {
