@@ -30,7 +30,7 @@ public class Fireball : MonoBehaviour
         { 
         Rigidbody2D clone;
         clone = Instantiate(MeleeProj, LaunchOffset.position, transform.rotation);
-        StartCoroutine(CooldownMelee(0.2f));
+        StartCoroutine(CooldownMelee(0.5f));
         }
     }
 

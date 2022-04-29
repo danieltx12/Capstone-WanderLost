@@ -5,6 +5,9 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     GameController gameController;
+    HP hp;
+    public AudioSource audioSource;
+    public AudioClip audioClip;
 
     private void Start()
     {
@@ -15,6 +18,10 @@ public class Checkpoint : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             gameController.lastCheckPointPos = transform.position;
+            hp = collision.gameObject.GetComponent<HP>();
+            hp.Heal(100);
+            audioSource.clip = audioClip;
+            audioSource.Play();
         }
     }
 }

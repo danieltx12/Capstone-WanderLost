@@ -84,8 +84,9 @@ public class Movement : MonoBehaviour
                 animator.SetTrigger("isAttack");
                 audioSource.clip = attackAudio;
                 audioSource.Play();
+                fireball.Melee();
             }
-            fireball.Melee();
+            
         }
 
         if (horizontalMove != 0 && controller.m_Grounded)

@@ -41,6 +41,7 @@ public class AbilityUpgrade : MonoBehaviour
             }
             else if(isAttackUpgrade)
             {
+                fireball.canShoot = true;
                 movement.canAttack = true;
                 Destroy(this.gameObject);
             }
