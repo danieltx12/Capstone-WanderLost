@@ -24,14 +24,18 @@ public class AbilityUpgrade : MonoBehaviour
         characterController = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>();
         dashAbility = GameObject.FindGameObjectWithTag("Player").GetComponent<DashAbility>();
         movement = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
-        audioSource.clip = audioClip;
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            tutorial.SetActive(true);
+            if (tutorial != null)
+            {
+                tutorial.SetActive(true);
+            }
+            audioSource.clip = audioClip;
             audioSource.Play();
             if(isGlideUpgrade)
             {
