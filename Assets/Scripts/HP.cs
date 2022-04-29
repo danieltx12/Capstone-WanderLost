@@ -21,6 +21,7 @@ public class HP : MonoBehaviour
     public AudioClip deathClip;
     bool invuln = false;
     bool cd = false;
+    public AudioClip damageClip;
     private void Start()
     {
         Health = MaxHealth;
@@ -36,6 +37,8 @@ public class HP : MonoBehaviour
         {
             Health -= dmg;
             Debug.Log(Health);
+            audioSource.clip = damageClip;
+            audioSource.Play();
             if (Health <= 0)
             {
                 Kill();

@@ -11,10 +11,11 @@ public class HealthUpgrade : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<HP>();
-        audioSource.clip = audioClip;
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        audioSource.clip = audioClip;
         audioSource.Play();
         if (collision.CompareTag("Player"))
         {
