@@ -7,6 +7,8 @@ public class Button : MonoBehaviour
     public GameObject Door;
     Animator animator;
     bool isPressed = false;
+    public AudioSource audioSource;
+    public AudioClip audioClip;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -18,6 +20,8 @@ public class Button : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !isPressed)
         {
+            audioSource.clip = audioClip;
+            audioSource.Play();
             animator.SetTrigger("isPressed");
             Door.SetActive(false);
             isPressed = true;
