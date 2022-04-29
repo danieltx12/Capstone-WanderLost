@@ -6,6 +6,8 @@ public class AttackTrigger : MonoBehaviour
 {
     public float speedMult;
     public EnemyAI enemyAI;
+    public AudioClip audioClip;
+    public AudioSource audioSource;
 
  
     private void OnTriggerEnter2D(Collider2D other)
@@ -14,6 +16,8 @@ public class AttackTrigger : MonoBehaviour
         {
             enemyAI.animator.SetTrigger("Attack");
             StartCoroutine("Attack");
+            audioSource.clip = audioClip;
+            audioSource.Play();
 
         }
     }

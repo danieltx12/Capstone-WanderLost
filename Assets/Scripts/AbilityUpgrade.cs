@@ -19,7 +19,10 @@ public class AbilityUpgrade : MonoBehaviour
    
     void Start()
     {
-        tutorial.SetActive(false);
+        if (tutorial != null)
+        {
+            tutorial.SetActive(false);
+        }
         fireball = GameObject.FindGameObjectWithTag("Player").GetComponent<Fireball>();
         characterController = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>();
         dashAbility = GameObject.FindGameObjectWithTag("Player").GetComponent<DashAbility>();
