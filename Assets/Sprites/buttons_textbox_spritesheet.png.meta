@@ -1,7 +1,28 @@
 fileFormatVersion: 2
 guid: 589d196c378b94ffe88d9473857d29df
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4479887600505343435
+    second: buttons_textbox_spritesheet_0
+  - first:
+      213: 7756404283584630035
+    second: buttons_textbox_spritesheet_1
+  - first:
+      213: -512352092043520786
+    second: buttons_textbox_spritesheet_2
+  - first:
+      213: -5327856615714291465
+    second: buttons_textbox_spritesheet_3
+  - first:
+      213: 4270610481792010196
+    second: buttons_textbox_spritesheet_4
+  - first:
+      213: -3027273767830086548
+    second: buttons_textbox_spritesheet_5
+  - first:
+      213: 7768647978379090078
+    second: buttons_textbox_spritesheet_6
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -31,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,7 +61,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,9 +91,168 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: buttons_textbox_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 214
+        width: 255
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c9c2ca92fc360b469a4b24b6635effe
+      internalID: -4479887600505343435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_textbox_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 179
+        width: 133
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76569e0759be2e84b97ab987a9e22e6d
+      internalID: 7756404283584630035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_textbox_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 137
+        width: 82
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 935f7d3bc32bf5849bd09cf742426dc2
+      internalID: -512352092043520786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_textbox_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 103
+        width: 155
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6614ed013c209b48813b4a503d73214
+      internalID: -5327856615714291465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_textbox_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 66
+        width: 58
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a72a66732b755c478b5ad806c7b8f16
+      internalID: 4270610481792010196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_textbox_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 36
+        width: 51
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7931b2cd1d3fed4a9333285d1d5b95b
+      internalID: -3027273767830086548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_textbox_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 0
+        width: 83
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9908e89a617af746bac6218de57f8eb
+      internalID: 7768647978379090078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

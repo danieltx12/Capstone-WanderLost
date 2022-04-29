@@ -8,6 +8,12 @@ public class Movement : MonoBehaviour
 
     public Fireball fireball;
 
+    public AudioClip fireballAudio;
+
+    public AudioClip attackAudio;
+
+    public AudioSource audioSource;
+
     public float runSpeed = 40f;
 
     bool jump = false;
@@ -63,13 +69,21 @@ public class Movement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.J) && canAttack)
         {
+            if (fireball.canShoot)
+            {
+                animator.SetTrigger("Fire");
+                audioSource.clip = fireballAudio;
+                audioSource.Play();
+            }
             fireball.Shoot();
         }
         if (Input.GetKeyDown(KeyCode.K) && canAttack)
         {
             if (fireball.canMelee)
             {
-                animator.SetTrigger("isAttack"); 
+                animator.SetTrigger("isAttack");
+                audioSource.clip = attackAudio;
+                audioSource.Play();
             }
             fireball.Melee();
         }

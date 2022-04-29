@@ -17,7 +17,7 @@ public class Vines : MonoBehaviour
     {
         if(other.gameObject.tag == "Fireball" && !destroyed)
         {
-            animator.SetTrigger("Destroy");
+            animator.SetTrigger("isBurn");
             vineCollider.isTrigger = true;
             StartCoroutine("Delete");
         }
@@ -25,7 +25,8 @@ public class Vines : MonoBehaviour
 
     IEnumerator Delete()
     {
+        destroyed = !destroyed;
         yield return new WaitForSeconds(0.5f);
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 }

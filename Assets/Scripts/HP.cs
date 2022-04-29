@@ -10,7 +10,6 @@ public class HP : MonoBehaviour
     [SerializeField] int MaxHealth;
     private int Health;
     public float iframes;
-    public Text HPDisplay;
     public Material red;
     public Material normal;
     SpriteRenderer spriteRend;
@@ -18,6 +17,8 @@ public class HP : MonoBehaviour
     public Image[] Hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
+    public AudioSource audioSource;
+    public AudioClip deathClip;
     bool invuln = false;
     bool cd = false;
     private void Start()
@@ -25,7 +26,6 @@ public class HP : MonoBehaviour
         Health = MaxHealth;
         if(this.tag == "Player")
         {
-            HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
             spriteRend = this.GetComponent<SpriteRenderer>();
         }
     }
@@ -35,10 +35,6 @@ public class HP : MonoBehaviour
         if (!invuln)
         {
             Health -= dmg;
-            if (HPDisplay != null)
-            {
-                HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
-            }
             Debug.Log(Health);
             if (Health <= 0)
             {
@@ -57,11 +53,9 @@ public class HP : MonoBehaviour
     public void Heal(int dmg)
     {
         Health += dmg;
-        HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
         if (Health > MaxHealth)
         {
             Health = MaxHealth;
-            HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
         }
     }
 
@@ -69,9 +63,10 @@ public class HP : MonoBehaviour
     {
         if (this.gameObject.tag  == "Player")
         {
+            audioSource.clip = deathClip;
+            audioSource.Play();
             Health = MaxHealth;
             playerpos.Reload();
-            HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
         }
         else
         {
@@ -86,7 +81,6 @@ public class HP : MonoBehaviour
             MaxHealth += 1;
             numHearts += 1;
             //Health += 5;
-            HPDisplay.text = "HP: " + Health + "/" + MaxHealth;
         }
     }
 
